@@ -10,27 +10,29 @@
 // ["1234", "1567", "-2", "computer science"] -> ["-2"]
 
 // ["Russia", "Denmark", "Kazan"] -> []
-using static System.Console;
 
-void PrintStringArray (string[] stringArray)
+
+string[] stringArray = { "program", "cat", "2", ":-)", "news", "mail" };
+
+void PrintStringArray(string[] stringArray)
 {
-    Write("[ ");
+    Console.Write("[ ");
     for (int i = 0; i < stringArray.Length; i++)
     {
-        Write($"\"{stringArray[i]}\"");
-        if (i!=stringArray.Length-1)
+        Console.Write($"\"{stringArray[i]}\"");
+        if (i != stringArray.Length - 1)
         {
-            Write(", ");
+            Console.Write(", ");
         }
     }
-Write("]");
+    Console.Write("]");
 }
-int SearchStringWithSizeLessOrEqual3(string[] stringArray)
+int StringOf3OrLess(string[] stringArray)
 {
     int numberOfStrings = 0;
     for (int i = 0; i < stringArray.Length; i++)
     {
-        if (stringArray[i].Length<4)
+        if (stringArray[i].Length < 4)
         {
             numberOfStrings++;
         }
@@ -38,7 +40,26 @@ int SearchStringWithSizeLessOrEqual3(string[] stringArray)
     return numberOfStrings;
 }
 
+string[] CreateArrayOf3OrLess(string[] stringArrey, int sizeNewArray)
+{
+    string[] newStringArray = new string[sizeNewArray];
+    int j = 0;
+    for (int i = 0; i < stringArray.Length; i++)
+    {
+        if (stringArray[i].Length < 4)
+        {
+            newStringArray[j] = stringArrey[i];
+            j++;
+        }
+    }
+    return newStringArray;
+}
 
-string[] stringArray = {"hello", "world", "2", ":-)"};
+//string[] stringArray = { "hello", "world", "2", ":-)" };
 PrintStringArray(stringArray);
-WriteLine(SearchStringWithSizeLessOrEqual3(stringArray));
+//WriteLine(SearchStringWithSizeLessOrEqual3(stringArray));
+int sizeNewArray = StringOf3OrLess(stringArray);
+string[] newStringArray = CreateArrayOf3OrLess(stringArray, sizeNewArray);
+Console.Write(" => ");
+PrintStringArray(newStringArray);
+Console.WriteLine();
