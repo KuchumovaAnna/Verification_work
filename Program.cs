@@ -57,7 +57,6 @@ string[] CreateArrayOf3OrLess(string[] stringArrey, int sizeNewArray)
 
 //string[] stringArray = { "hello", "world", "2", ":-)" };
 PrintStringArray(stringArray);
-//WriteLine(SearchStringWithSizeLessOrEqual3(stringArray));
 int sizeNewArray = StringOf3OrLess(stringArray);
 string[] newStringArray = CreateArrayOf3OrLess(stringArray, sizeNewArray);
 Console.Write(" => ");
